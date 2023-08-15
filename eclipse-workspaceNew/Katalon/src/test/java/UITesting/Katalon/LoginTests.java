@@ -16,14 +16,14 @@ public class LoginTests {
 	WebDriver driver;
 	ChromeOptions options;
 	
-	@BeforeSuite
+	@BeforeSuite(alwaysRun=true)
 	public void SetUp() {
 		options=new ChromeOptions();
 		options.addArguments("--start-maximized");
 		driver=new ChromeDriver(options);
 	}
 	
-	@Test
+	@Test(groups={"positive"})
 	public void ValidLogin() {
 		
 		driver.get("https://katalon-demo-cura.herokuapp.com/#appointment");
@@ -50,7 +50,7 @@ public class LoginTests {
 		
 	}
 	
-	@AfterSuite
+	@AfterSuite(alwaysRun=true)
 	public void TearDown() {
 		driver.quit();
 	}
